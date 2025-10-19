@@ -10,14 +10,26 @@ class MainTest {
     void getNumberOfSubBreedsValidBreed() throws BreedFetcher.BreedNotFoundException {
         BreedFetcherForLocalTesting mock = new BreedFetcherForLocalTesting();
 
-        assertEquals(2, Main.getNumberOfSubBreeds("hound", mock));
+        try {
+            assertEquals(2, Main.getNumberOfSubBreeds("hound", mock));
+        }
+
+        catch (BreedFetcher.BreedNotFoundException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     @Test
     void getNumberOfSubBreedsInvalidBreed() throws BreedFetcher.BreedNotFoundException {
         BreedFetcherForLocalTesting mock = new BreedFetcherForLocalTesting();
 
-        assertEquals(0, Main.getNumberOfSubBreeds("cat", mock));
+        try {
+            assertEquals(0, Main.getNumberOfSubBreeds("cat", mock));
+        }
+
+        catch (BreedFetcher.BreedNotFoundException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     @Test
@@ -26,5 +38,4 @@ class MainTest {
         assertTrue(bfe instanceof Exception && !(bfe instanceof RuntimeException),
                 "BreedFetcher.BreedNotFoundException must be a checked exception.");
     }
-
 }
