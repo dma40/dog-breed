@@ -1,5 +1,6 @@
 package dogapi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -24,7 +25,16 @@ public class Main {
      * returned by the fetcher
      */
     public static int getNumberOfSubBreeds(String breed, BreedFetcher breedFetcher) throws BreedFetcher.BreedNotFoundException {
-        List<String> result = breedFetcher.getSubBreeds(breed);
+        List<String> result = new ArrayList<>();
+
+        try {
+            result = breedFetcher.getSubBreeds(breed);
+        }
+
+        catch (BreedFetcher.BreedNotFoundException e) {
+            return 0;
+        }
+
         return result.size();
     }
 }

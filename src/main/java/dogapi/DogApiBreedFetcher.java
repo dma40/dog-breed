@@ -20,8 +20,6 @@ public class DogApiBreedFetcher implements BreedFetcher {
     public static final String TOKEN = "token";
     private static final String APPLICATION_JSON = "application/json";
     private static final String CONTENT_TYPE = "Content-Type";
-    private static final String STATUS_CODE = "status_code";
-    private static final int SUCCESS_CODE = 200;
 
     /**
      * Fetch the list of sub breeds for the given breed from the dog.ceo API.
