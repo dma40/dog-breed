@@ -51,11 +51,16 @@ public class DogApiBreedFetcher implements BreedFetcher {
                         subbreeds.add(breedName);
                     }
                 }
+
+                else {
+                    throw new IOException(responseBody.getString("message"));
+                }
             }
 
             catch (IOException | JSONException event) {
                 throw new BreedNotFoundException(event.getMessage());
             }
+
 
         return subbreeds;
     }
