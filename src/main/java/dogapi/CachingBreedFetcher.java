@@ -23,8 +23,8 @@ public class CachingBreedFetcher implements BreedFetcher {
 
     @Override
     public List<String> getSubBreeds(String breed) throws BreedNotFoundException {
-
         List<String> subbreeds;
+        callsMade++;
 
         // return statement included so that the starter code can compile and run.
         if (cached.containsKey(breed)) {
@@ -45,7 +45,6 @@ public class CachingBreedFetcher implements BreedFetcher {
 
             if (success) {
                 cached.put(breed, subbreeds);
-                callsMade++;
             }
         }
 
